@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Form from './Form';
+import GoalsForm from './Form';
 import Goals from './Goals';
 import { Box, DataTable, Grommet, Meter, Text } from 'grommet';
 
@@ -46,7 +46,7 @@ class App extends Component {
                 <AppBar>
                     THIS IS FUBAR
                 </AppBar>
-                <Form handleSubmit={this.handleSubmit}/>
+                <GoalsForm handleSubmit={this.handleSubmit}/>
                 <Goals goals={goals}/>
             </Grommet>
          );

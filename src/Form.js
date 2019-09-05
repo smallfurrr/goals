@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
-import ls from 'local-storage'
+import { Form, FormField, Button } from 'grommet';
+import Calendar from './Calendar'
+import DateInput from './Date'
+// import ls from 'local-storage'
 
-class Form extends Component {
+class GoalsForm extends Component {
+
     constructor(props) {
         super(props)
 
@@ -11,7 +15,9 @@ class Form extends Component {
         }
 
         this.state = this.initialState
+        //at the moment this is resetting on each refresh
     }
+
 
     handleChange = event => {
         const { name, value } = event.target
@@ -30,7 +36,7 @@ class Form extends Component {
         const { goal, endDate } = this.state;
 
         return (
-            <form>
+            <Form>
                 <label>Goal</label>
                 <input
                     type="text"
@@ -38,15 +44,19 @@ class Form extends Component {
                     value={goal}
                     onChange={this.handleChange} />
                 <label>End Date</label>
+
                 <input
                     type="text"
                     name="endDate"
                     value={endDate}
                     onChange={this.handleChange} />
+
+                <DateInput />
+
                 <input type="button" value="Submit" onClick={this.submitForm} />
-            </form>
+            </Form>
         );
     }
 }
 
-export default Form
+export default GoalsForm
