@@ -29,22 +29,21 @@ const AppBar = (props) => (
 
 class App extends Component {
 
-        state = {
-            goals: [],
-        }
+    state = {
+        goals: [],
+    }
 
     handleSubmit = goal => {
         this.setState({ goals: [...this.state.goals, goal] })
     }
 
     render() {
-
         const { goals } = this.state
 
         return (
             <Grommet theme={theme}>
                 <AppBar>
-                    THIS IS FUBAR
+                    #GOALS
                 </AppBar>
                 <GoalsForm handleSubmit={this.handleSubmit}/>
                 <Goals goals={goals}/>

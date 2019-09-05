@@ -13,6 +13,7 @@ class GoalsForm extends Component {
         this.initialState = {
             goal: '',
             endDate: null,
+            formatDate: null
         }
 
         this.state = this.initialState
@@ -34,26 +35,25 @@ class GoalsForm extends Component {
 
     onDateSelect = date => {
 
-        // const endDate = new Date(date);
-
         const endDate = moment(date)
-        const justMoment = moment()
+        const formatDate = endDate.format('D MMMM YYYY')
 
-        console.log(endDate)
-        console.log(justMoment)
-
-        console.log(endDate.from(justMoment));
-        // omg this works leh
+        // const justMoment = moment()
+        // console.log(endDate)
+        // console.log(justMoment)
+        // console.log(endDate.from(justMoment));
+        // omg this works leh. it will return "in x days"
 
         this.setState({
             endDate: endDate,
+            formatDate: formatDate
         })
 
     }
 
     render() {
 
-        const { goal, endDate } = this.state;
+        const { goal } = this.state;
 
         return (
             <Form>
