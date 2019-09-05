@@ -1,26 +1,56 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import Form from './Form';
+import SimpleCard from './Goals';
+import { Box, DataTable, Grommet, Meter, Text } from 'grommet';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const theme = {
+  global: {
+    font: {
+      family: 'Roboto',
+      size: '14px',
+      height: '20px',
+    },
+  },
+};
+
+const AppBar = (props) => (
+  <Box
+    tag='header'
+    direction='row'
+    align='center'
+    justify='between'
+    background='brand'
+    pad={{ left: 'medium', right: 'small', vertical: 'small' }}
+    elevation='medium'
+    style={{ zIndex: '1' }}
+    {...props}
+  />
+);
+
+class App extends Component {
+
+        state = {
+            goals: [],
+        }
+
+    handleSubmit = goal => {
+        this.setState({ goals: [...this.state.goals, goal] })
+    }
+
+    render() {
+
+        const { goals } = this.state
+
+        return (
+            <Grommet theme={theme}>
+                <AppBar>
+                    THIS IS FUBAR
+                </AppBar>
+                <Form handleSubmit={this.handleSubmit}/>
+                <SimpleCard goalData={goals}/>
+            </Grommet>
+         );
+    }
 }
 
 export default App;
