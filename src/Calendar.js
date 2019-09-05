@@ -3,6 +3,10 @@ import { Calendar } from 'grommet';
 
 export default class extends Component {
 
+    state = {}
+
+    onSelectSingle = date => this.setState({ date })
+
     render() {
 
     return (
@@ -10,9 +14,9 @@ export default class extends Component {
             size="small"
             animate={true}
             range={false}
-            date={(new Date())}
+            date={this.state.date}
             onSelect={(date) => {
-                date = date
+                this.onSelectSingle(date)
                 this.props.onDateSelect(date)
             }}
         />
