@@ -15,7 +15,6 @@ class GoalsForm extends Component {
         }
 
         this.state = this.initialState
-        //at the moment this is resetting on each refresh
     }
 
 
@@ -37,12 +36,8 @@ class GoalsForm extends Component {
 
         return (
             <Form>
-                <label>Goal</label>
-                <input
-                    type="text"
-                    name="goal"
-                    value={goal}
-                    onChange={this.handleChange} />
+                <FormField type="text" name="goal" label="Goal" value={goal} onChange={this.handleChange} required={true} />
+
                 <label>End Date</label>
 
                 <input
@@ -52,6 +47,7 @@ class GoalsForm extends Component {
                     onChange={this.handleChange} />
 
                 <DateInput />
+
 
                 <input type="button" value="Submit" onClick={this.submitForm} />
             </Form>
