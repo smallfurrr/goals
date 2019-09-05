@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Form from './Form';
-import SimpleCard from './Goals';
+import Goals from './Goals';
 import { Box, DataTable, Grommet, Meter, Text } from 'grommet';
 
 const theme = {
@@ -47,7 +47,7 @@ class App extends Component {
                     THIS IS FUBAR
                 </AppBar>
                 <Form handleSubmit={this.handleSubmit}/>
-                <SimpleCard goalData={goals}/>
+                <Goals goals={goals}/>
             </Grommet>
          );
     }

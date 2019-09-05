@@ -43,14 +43,17 @@ const SimpleCard = props => {
         </Card>
         )
     })
-    return {cards}
+    return <div>{cards}</div>
 }
 
 class Goals extends Component {
     render(){
+
+        const { goals } = this.props
+
         return (
-            <SimpleCard />
+            <SimpleCard goals={goals} />
     )}
 }
 
-export default SimpleCard;
+export default Goals;
