@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Form, FormField, Button } from 'grommet';
+import moment from 'moment'
+
 import Calendar from './Calendar'
-import DateInput from './Date'
 // import ls from 'local-storage'
 
 class GoalsForm extends Component {
@@ -11,7 +12,7 @@ class GoalsForm extends Component {
 
         this.initialState = {
             goal: '',
-            endDate: '',
+            endDate: null,
         }
 
         this.state = this.initialState
@@ -31,23 +32,43 @@ class GoalsForm extends Component {
         this.setState(this.initialState)
     }
 
+    onDateSelect = date => {
+
+        // const endDate = new Date(date);
+
+        const endDate = moment(date)
+        const justMoment = moment()
+
+        console.log(endDate)
+        console.log(justMoment)
+
+        console.log(endDate.from(justMoment));
+        // omg this works leh
+
+        this.setState({
+            endDate: endDate,
+        })
+
+    }
+
     render() {
+
         const { goal, endDate } = this.state;
 
         return (
             <Form>
-                <FormField type="text" name="goal" label="Goal" value={goal} onChange={this.handleChange} required={true} />
-
-                <label>End Date</label>
-
-                <input
+                <FormField
                     type="text"
-                    name="endDate"
-                    value={endDate}
-                    onChange={this.handleChange} />
+                    name="goal"
+                    label="Goal"
+                    value={goal}
+                    onChange={this.handleChange}
+                    required={true}
+                />
 
-                <DateInput />
-
+                <Calendar
+                    onDateSelect={this.onDateSelect}
+                />
 
                 <input type="button" value="Submit" onClick={this.submitForm} />
             </Form>

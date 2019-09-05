@@ -52,13 +52,15 @@ class DateInput extends Component {
     const text = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
     this.setState({ date, text, active: false });
     this.focusInput = true;
-    console.log(this.state)
+    // console.log(this.state)
 
     //sample state: {text: "9/12/2019", active: true, date: Thu Sep 12 2019 20:29:05 GMT+0800 (Singapore Standard Time)}
   }
 
   render() {
+
     const { active, date, text } = this.state;
+
     return (
       <Box>
         <Keyboard onDown={() => this.setState({ active: true })}>
@@ -88,6 +90,8 @@ class DateInput extends Component {
   }
 }
 
-export default () => (
-    <DateInput />
-);
+// export default () => (
+//     <DateInput />
+// );
+
+export default DateInput
