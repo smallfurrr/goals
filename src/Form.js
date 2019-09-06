@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Button, Form, FormField, Heading } from 'grommet';
+import { Box, Button, Form, FormField, Heading, Layer, Text } from 'grommet';
+import { Schedule } from 'grommet-icons'
 import moment from 'moment'
 
 import Calendar from './Calendar'
@@ -13,12 +14,12 @@ class GoalsForm extends Component {
         this.initialState = {
             goal: '',
             endDate: null,
-            formatDate: null
+            formatDate: null,
+            layerShow: false,
         }
 
         this.state = this.initialState
     }
-
 
     handleChange = event => {
         const { name, value } = event.target
@@ -46,14 +47,36 @@ class GoalsForm extends Component {
 
         this.setState({
             endDate: endDate,
-            formatDate: formatDate
-        })
-
-    }
+            formatDate: formatDate,
+        });
+    };
 
     render() {
 
+        const ScheduleLayer = ({ onClose }) => (
+          <Layer position='top' onClickOutside={onClose}>
+            <Box pad='large' gap='medium'>
+              <Text>Are you sure?</Text>
+              <Box direction='row' gap='medium' align='center'>
+                <Button label='Yes' onClick={onClose} />
+                <Button label='No' primary={true} onClick={onClose} />
+              </Box>
+            </Box>
+          </Layer>
+        )
+
         const { goal } = this.state;
+        const { layerShow } = this.state;
+
+        let layer;
+
+        if (layerShow) {
+            layer = <ScheduleLayer
+                onClose={() => this.setState({
+                layerShow: false })
+                }
+                />;
+        }
 
         return (
 
@@ -72,11 +95,25 @@ class GoalsForm extends Component {
                     required={true}
                 />
 
+                <Button
+                icon={<Schedule />}
+                color="brand"
+                size="small"
+                label="Date"
+
+                onClick={() => this.setState({
+                layerShow: (layerShow ? false : true),
+                })}
+                />
+
                 <Calendar
                     onDateSelect={this.onDateSelect}
                 />
 
                 <input type="button" value="Submit" onClick={this.submitForm} />
+
+            {layer}
+
             </Form>
         );
     }
