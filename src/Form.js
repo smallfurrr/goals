@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, FormField, Button } from 'grommet';
+import { Button, Form, FormField, Heading } from 'grommet';
 import moment from 'moment'
 
 import Calendar from './Calendar'
@@ -56,7 +56,13 @@ class GoalsForm extends Component {
         const { goal } = this.state;
 
         return (
+
             <Form>
+            <Heading
+            margin="small"
+            level={3}
+            >Add New Goal
+            </Heading>
                 <FormField
                     type="text"
                     name="goal"

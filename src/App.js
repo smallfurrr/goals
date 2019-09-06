@@ -45,8 +45,20 @@ class App extends Component {
                 <AppBar>
                     #GOALS
                 </AppBar>
-                <GoalsForm handleSubmit={this.handleSubmit}/>
-                <Goals goals={goals}/>
+
+                <Box
+                pad="medium"
+                elevation="medium"
+                width="medium"
+                >
+                <GoalsForm
+                handleSubmit={this.handleSubmit}
+                />
+                </Box>
+
+                <Goals
+                goals={goals}
+                />
             </Grommet>
          );
     }
