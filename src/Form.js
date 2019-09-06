@@ -39,16 +39,11 @@ class GoalsForm extends Component {
         const endDate = moment(date)
         const formatDate = endDate.format('D MMMM YYYY')
 
-        // const justMoment = moment()
-        // console.log(endDate)
-        // console.log(justMoment)
-        // console.log(endDate.from(justMoment));
-        // omg this works leh. it will return "in x days"
-
         this.setState({
             endDate: endDate,
             formatDate: formatDate,
         });
+        //i need to create a button that handles the actual date select
     };
 
     render() {
@@ -56,10 +51,11 @@ class GoalsForm extends Component {
         const ScheduleLayer = ({ onClose }) => (
           <Layer position='top' onClickOutside={onClose}>
             <Box pad='large' gap='medium'>
-              <Text>Are you sure?</Text>
+              <Text>Select End Date</Text>
               <Box direction='row' gap='medium' align='center'>
-                <Button label='Yes' onClick={onClose} />
-                <Button label='No' primary={true} onClick={onClose} />
+                    <Calendar
+                    onDateSelect={this.onDateSelect}
+                    />
               </Box>
             </Box>
           </Layer>
@@ -100,16 +96,12 @@ class GoalsForm extends Component {
                 color="brand"
                 size="small"
                 label="Date"
-
                 onClick={() => this.setState({
                 layerShow: (layerShow ? false : true),
                 })}
                 />
 
-                <Calendar
-                    onDateSelect={this.onDateSelect}
-                />
-
+                <br/>
                 <input type="button" value="Submit" onClick={this.submitForm} />
 
             {layer}
