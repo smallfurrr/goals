@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Box, Button, Form, FormField, Heading, Layer, Text } from 'grommet';
+import { Box, Button, Form, FormField, Heading, Layer, Text } from 'grommet'
 import { Schedule } from 'grommet-icons'
 import moment from 'moment'
 
@@ -29,12 +29,8 @@ class GoalsForm extends Component {
         })
     }
 
-    submitForm = () => {
-        this.props.handleSubmit(this.state)
-        this.setState(this.initialState)
-    }
-
-    onDateSelect = date => {
+    receivingInput = (date) => {
+        console.log("I AM HERE" + date)
 
         const endDate = moment(date)
         const formatDate = endDate.format('D MMMM YYYY')
@@ -42,19 +38,35 @@ class GoalsForm extends Component {
         this.setState({
             endDate: endDate,
             formatDate: formatDate,
+            layerShow: false,
         });
-        //i need to create a button that handles the actual date select
-    };
+    }
+
+    submitForm = () => {
+        this.props.handleSubmit(this.state)
+        this.setState(this.initialState)
+    }
+
+    // onDateSelect = date => {
+
+    //     const endDate = moment(date)
+    //     const formatDate = endDate.format('D MMMM YYYY')
+
+    //     this.setState({
+    //         endDate: endDate,
+    //         formatDate: formatDate,
+    //     });
+    // };
 
     render() {
 
         const ScheduleLayer = ({ onClose }) => (
           <Layer position='top' onClickOutside={onClose}>
             <Box pad='large' gap='medium'>
-              <Text>Select End Date</Text>
               <Box direction='row' gap='medium' align='center'>
-                    <Calendar
-                    onDateSelect={this.onDateSelect}
+                  <Calendar
+                    // onDateSelect={this.onDateSelect}
+                    receiveHandler={this.receivingInput}
                     />
               </Box>
             </Box>
@@ -75,37 +87,48 @@ class GoalsForm extends Component {
         }
 
         return (
-
             <Form>
-            <Heading
-            margin="small"
-            level={3}
-            >Add New Goal
-            </Heading>
-                <FormField
-                    type="text"
-                    name="goal"
-                    label="Goal"
-                    value={goal}
-                    onChange={this.handleChange}
-                    required={true}
-                />
+                <Box
+                gap="small"
+                margin="small"
+                >
+                <Heading
+                margin="small"
+                level={3}
+                >Add New Goal
+                </Heading>
+                    <FormField
+                        type="text"
+                        name="goal"
+                        label="Goal"
+                        value={goal}
+                        onChange={this.handleChange}
+                        required={true}
+                    />
 
-                <Button
-                icon={<Schedule />}
-                color="brand"
-                size="small"
-                label="Date"
-                onClick={() => this.setState({
-                layerShow: (layerShow ? false : true),
-                })}
-                />
+                    <Button
+                    icon={<Schedule />}
+                    color="brand"
+                    size="small"
+                    label="Select End Date"
+                    onClick={() => this.setState({
+                    layerShow: (layerShow ? false : true),
+                    })}
+                    />
 
-                <br/>
-                <input type="button" value="Submit" onClick={this.submitForm} />
+                    <Text>
+                    Goal End Date: {this.state.formatDate}
+                    </Text>
 
-            {layer}
+                    <br/>
 
+                    <Button primary
+                    type="submit"
+                    label="Submit"
+                    onClick={this.submitForm}
+                    />
+                {layer}
+                </Box>
             </Form>
         );
     }

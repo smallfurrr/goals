@@ -33,7 +33,10 @@ const SimpleCard = props => {
     const cards = props.goals.map((row, index) => {
 
         return (
-        <Card className={classes.card}>
+        <Card
+        className={classes.card}
+        key={index}
+        >
           <CardContent>
             <Typography variant="body2" component="p">
               {row.goal}
@@ -57,4 +60,4 @@ class Goals extends Component {
     )}
 }
 
-export default Goals;
+export default Goals
