@@ -25,6 +25,8 @@ class GoalsForm extends Component {
             formatDate: null,
             layerShow: false,
             taskOne: '',
+            taskOneDone: false,
+            //need to toggle this through the checkbox - callback function
         }
 
         this.state = this.initialState

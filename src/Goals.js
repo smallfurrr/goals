@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ls from 'local-storage'
 import {
 Box,
 Button,
@@ -7,6 +8,51 @@ Heading,
 Text,
 } from 'grommet'
 import { Trash } from 'grommet-icons';
+
+
+
+class SimpleCheckBox extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            checked: !!props.checked
+        };
+    }
+
+    componentDidMount() {
+        this.setState({
+            checked: ls.get('checked')
+        })
+    }
+
+    onChange = event => {
+
+        const checkcheck = event.target.checked
+
+        this.setState({
+            // checked: event.target.checked
+            checked: checkcheck
+        });
+
+        ls.set('checked', checkcheck)
+    }
+
+  render() {
+
+    const { checked } = this.state;
+
+    return (
+          <CheckBox
+            {...this.props}
+            // label="Task Complete"
+            checked={checked}
+            onChange={this.onChange}
+          />
+    );
+  }
+}
 
 const SimpleCard = props => {
 
@@ -41,21 +87,42 @@ const SimpleCard = props => {
             pad="medium"
             justify="center"
             >
-                <Text>
-                  Goal End Date: {row.formatDate}
-                  <br/>
-                  Task One: {row.taskOne}
-                </Text>
+                <Box
+                margin={{ bottom: "medium"}}
+                >
+                    <Text>
+                      Goal End Date: {row.formatDate}
+                    </Text>
+                </Box>
+
+                 <Heading
+                level={4}
+                fill={true}
+                margin={{ bottom:"xsmall"} }
+                >
+                Tasks
+                </Heading>
 
                 <Box
                 direction="row"
-                margin={{ top: "medium" }}
+                align="center"
+                >
+                    <Text
+                    margin={{ right: "small"}}
+                    >
+                    {row.taskOne}
+                    </Text>
+                    <SimpleCheckBox/>
+                </Box>
+
+                <Box
+                direction="row"
+                margin={{ top: "large" }}
                 >
                 <Button plain
                 index={index}
                 icon={<Trash />}
                 label="Delete Goal"
-                // onClick={() => console.log("fuck this shit")}
                 onClick={ () => props.removeGoal(index) }
                 />
                 </Box>

@@ -38,7 +38,6 @@ export default class extends Component {
                 date={this.state.date}
                 onSelect={(date) => {
                     this.onSelectSingle(date)
-                    // this.props.onDateSelect(date)
                 }}
             />
             <SubmitButton
