@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import {
 Box,
+Button,
 CheckBox,
 Heading,
 Text,
 } from 'grommet'
+import { Trash } from 'grommet-icons';
 
 //Ok i THINK... i need to create those goal cards as a class on their own
 //then edit the cards based on actions and methods HERE
@@ -48,6 +50,17 @@ const SimpleCard = props => {
                   <br/>
                   Task One: {row.taskOne}
                 </Text>
+
+                <Box
+                direction="row"
+                margin={{top: "medium"}}
+                >
+                <Button plain
+                icon={<Trash />}
+                label="Delete Goal"
+                onClick={() => console.log("i hate my life")}
+                />
+                </Box>
             </Box>
         </Box>
         )
