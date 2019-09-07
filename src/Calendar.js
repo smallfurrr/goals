@@ -8,7 +8,6 @@ class SubmitButton extends Component {
                 type="submit"
                 label="Confirm"
                 onClick={this.props.sendInput}
-                // onClick={ () => console.log("why the fuck" + date) }
             />
         )
     }

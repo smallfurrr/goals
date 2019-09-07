@@ -1,5 +1,15 @@
 import React, { Component } from 'react'
-import { Box, Button, Form, FormField, Heading, Layer, Text, TextInput } from 'grommet'
+import {
+Box,
+Button,
+CheckBox,
+Form,
+FormField,
+Heading,
+Layer,
+Text,
+TextInput
+} from 'grommet'
 import { Schedule } from 'grommet-icons'
 import moment from 'moment'
 
@@ -31,7 +41,7 @@ class GoalsForm extends Component {
         })
     }
 
-    receivingInput = (date) => {
+    receivingInput = date => {
         const endDate = moment(date)
         const formatDate = endDate.format('D MMMM YYYY')
 
@@ -129,6 +139,7 @@ class GoalsForm extends Component {
                                 onChange={this.handleChange}
                                 required={true}
                                 />
+
                             </FormField>
 
                     <Button primary
