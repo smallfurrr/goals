@@ -5,7 +5,11 @@ CheckBox,
 Heading,
 Text,
 } from 'grommet'
-//Later change goal box to use Grommet instead of Material
+
+//Ok i THINK... i need to create those goal cards as a class on their own
+//then edit the cards based on actions and methods HERE
+//and then somehow.. use the key to remove that particular goal from the goals array in APP (maybe can refer to the Tables tutorial code)
+//fun times
 
 const SimpleCard = props => {
 
@@ -14,10 +18,13 @@ const SimpleCard = props => {
         return (
         <Box
         key={index}
-        width="medium"
+        // width="medium"
+        // wrap={true}
+        basis="45%"
         elevation="medium"
         round="medium"
         gap="xsmall"
+        margin={{bottom: "small", right: "small"}}
         >
             <Box
             round={{size: "medium", corner: "top"}}
@@ -25,7 +32,7 @@ const SimpleCard = props => {
             background="linear-gradient(102.77deg, #865ED6 -9.18%, #18BAB9 209.09%)"
             >
                 <Heading
-                level={2}
+                level={3}
                 margin="xsmall"
                 color="white"
                 >{row.goal}
@@ -45,7 +52,7 @@ const SimpleCard = props => {
         </Box>
         )
     })
-    return <div>{cards}</div>
+    return <Box wrap={true} direction="row">{cards}</Box>
 }
 
 class Goals extends Component {
@@ -54,7 +61,16 @@ class Goals extends Component {
         const { goals } = this.props
 
         return (
-            <SimpleCard goals={goals} />
+            <Box
+            // width="large"
+            wrap={true}
+            width="100%"
+            direction="row"
+            >
+                <SimpleCard
+                goals={goals}
+                />
+            </Box>
     )}
 }
 

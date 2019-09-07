@@ -66,13 +66,14 @@ class App extends Component {
                 <AppBar>
                     #GOALS
                 </AppBar>
+
                 {/* overall container */}
                 <Box
                 gap="small"
                 pad="medium"
-                wrap="true"
                 direction="row">
-                    {/* create new goals box */}
+
+                    {/* create new goals */}
                     <Box
                     pad="medium"
                     elevation="medium"
@@ -85,7 +86,9 @@ class App extends Component {
 
                     {/* all current goals */}
                     <Box
-                    width="large"
+                    width="100%"
+                    // wrap={true}
+                    direction="row"
                     >
                         <Goals
                         goals={goals}
