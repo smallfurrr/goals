@@ -45,21 +45,32 @@ class App extends Component {
                 <AppBar>
                     #GOALS
                 </AppBar>
-
-                {/* create new goals box */}
+                {/* overall container */}
                 <Box
+                gap="small"
                 pad="medium"
-                elevation="medium"
-                width="medium"
-                >
-                <GoalsForm
-                handleSubmit={this.handleSubmit}
-                />
-                </Box>
+                wrap="true"
+                direction="row">
+                    {/* create new goals box */}
+                    <Box
+                    pad="medium"
+                    elevation="medium"
+                    width="medium"
+                    >
+                        <GoalsForm
+                        handleSubmit={this.handleSubmit}
+                        />
+                    </Box>
 
-                <Goals
-                goals={goals}
-                />
+                    {/* all current goals */}
+                    <Box
+                    width="large"
+                    >
+                        <Goals
+                        goals={goals}
+                        />
+                    </Box>
+                </Box>
             </Grommet>
          );
     }

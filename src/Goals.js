@@ -7,7 +7,6 @@ Text,
 } from 'grommet'
 //Later change goal box to use Grommet instead of Material
 
-
 const SimpleCard = props => {
 
     const cards = props.goals.map((row, index) => {
@@ -16,17 +15,33 @@ const SimpleCard = props => {
         <Box
         key={index}
         width="medium"
-        pad="medium"
         elevation="medium"
-        gap="medium"
+        round="medium"
+        gap="xsmall"
         >
-            <Text>
-              Goal: {row.goal}
-              <br />
-              Goal End date: {row.formatDate}
-              <br />
-              Task One: {row.taskOne}
-            </Text>
+            <Box
+            round={{size: "medium", corner: "top"}}
+            pad="medium"
+            background="linear-gradient(102.77deg, #865ED6 -9.18%, #18BAB9 209.09%)"
+            >
+                <Heading
+                level={2}
+                margin="xsmall"
+                color="white"
+                >{row.goal}
+                </Heading>
+            </Box>
+
+            <Box
+            pad="medium"
+            justify="center"
+            >
+                <Text>
+                  Goal End Date: {row.formatDate}
+                  <br/>
+                  Task One: {row.taskOne}
+                </Text>
+            </Box>
         </Box>
         )
     })
