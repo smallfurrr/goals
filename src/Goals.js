@@ -8,11 +8,6 @@ Text,
 } from 'grommet'
 import { Trash } from 'grommet-icons';
 
-//Ok i THINK... i need to create those goal cards as a class on their own
-//then edit the cards based on actions and methods HERE
-//and then somehow.. use the key to remove that particular goal from the goals array in APP (maybe can refer to the Tables tutorial code)
-//fun times
-
 const SimpleCard = props => {
 
     const cards = props.goals.map((row, index) => {
@@ -53,12 +48,14 @@ const SimpleCard = props => {
 
                 <Box
                 direction="row"
-                margin={{top: "medium"}}
+                margin={{ top: "medium" }}
                 >
                 <Button plain
+                index={index}
                 icon={<Trash />}
                 label="Delete Goal"
-                onClick={() => console.log("i hate my life")}
+                // onClick={() => console.log("fuck this shit")}
+                onClick={ () => props.removeGoal(index) }
                 />
                 </Box>
             </Box>
@@ -71,7 +68,7 @@ const SimpleCard = props => {
 class Goals extends Component {
     render(){
 
-        const { goals } = this.props
+        const { goals, removeGoal } = this.props
 
         return (
             <Box
@@ -82,6 +79,7 @@ class Goals extends Component {
             >
                 <SimpleCard
                 goals={goals}
+                removeGoal={removeGoal}
                 />
             </Box>
     )}

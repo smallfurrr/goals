@@ -31,7 +31,7 @@ class GoalsForm extends Component {
     }
 
     handleChange = event => {
-        //the name and value take from the form field
+
         const { name, value } = event.target
 
         this.setState({
@@ -115,12 +115,23 @@ class GoalsForm extends Component {
                     })}
                     />
 
-                    <Text
-                    size="medium"
-                    color="neutral-2"
+                    <Box
+                    direction="row"
                     >
-                    Goal End Date: {this.state.formatDate}
-                    </Text>
+                        <Text
+                        size="small"
+                        color="neutral-2"
+                        margin={{ right: "xsmall" }}
+                        >
+                            Goal End Date:
+                        </Text>
+
+                        <Text
+                        size="small"
+                        color="dark-1">
+                            {this.state.formatDate}
+                        </Text>
+                    </Box>
 
                     <Heading
                     level={3}

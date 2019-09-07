@@ -109,6 +109,7 @@ class App extends Component {
                     >
                         <Goals
                         goals={goals}
+                        removeGoal={this.removeGoal}
                         />
                     </Box>
                 </Box>
