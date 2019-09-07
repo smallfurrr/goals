@@ -52,9 +52,26 @@ class App extends Component {
 
     handleSubmit = goal => {
         const newGoals = [...this.state.goals, goal]
+
         this.setState({
             goals: newGoals
         })
+
+        ls.set('goals', newGoals)
+    }
+
+    removeGoal = index => {
+
+        const { goals } = this.state
+
+        const newGoals = goals.filter((goals, i) => {
+                return i != index
+            })
+
+        this.setState({
+            goals: newGoals
+            })
+
         ls.set('goals', newGoals)
     }
 
