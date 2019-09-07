@@ -1,7 +1,14 @@
 import React, { Component } from 'react'
 import GoalsForm from './Form';
 import Goals from './Goals';
-import { Box, DataTable, Grommet, Meter, Text } from 'grommet';
+import ls from 'local-storage'
+import {
+Box,
+DataTable,
+Grommet,
+Meter,
+Text } from 'grommet';
+
 
 const theme = {
   global: {
@@ -29,12 +36,26 @@ const AppBar = (props) => (
 
 class App extends Component {
 
-    state = {
-        goals: [],
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            goals: [],
+        }
+    }
+
+    componentDidMount() {
+        this.setState({
+            goals: ls.get('goals') || [],
+        })
     }
 
     handleSubmit = goal => {
-        this.setState({ goals: [...this.state.goals, goal] })
+        const newGoals = [...this.state.goals, goal]
+        this.setState({
+            goals: newGoals
+        })
+        ls.set('goals', newGoals)
     }
 
     render() {

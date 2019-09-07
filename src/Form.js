@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import Calendar from './Calendar'
+import moment from 'moment'
 import {
 Box,
 Button,
@@ -11,10 +13,6 @@ Text,
 TextInput
 } from 'grommet'
 import { Schedule } from 'grommet-icons'
-import moment from 'moment'
-
-import Calendar from './Calendar'
-// import ls from 'local-storage'
 
 class GoalsForm extends Component {
 
