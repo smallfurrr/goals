@@ -6,7 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-//KIV using grommet box component instead of Material
+//Later change goal box to use Grommet instead of Material
 
 const useStyles = makeStyles({
   card: {
@@ -39,9 +39,11 @@ const SimpleCard = props => {
         >
           <CardContent>
             <Typography variant="body2" component="p">
-              {row.goal}
+              Goal: {row.goal}
               <br />
-              End date: {row.formatDate}
+              Goal End date: {row.formatDate}
+              <br />
+              Task One: {row.taskOne}
             </Typography>
           </CardContent>
         </Card>

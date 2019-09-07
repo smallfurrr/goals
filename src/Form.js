@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Box, Button, Form, FormField, Heading, Layer, Text } from 'grommet'
+import { Box, Button, Form, FormField, Heading, Layer, Text, TextInput } from 'grommet'
 import { Schedule } from 'grommet-icons'
 import moment from 'moment'
 
@@ -16,12 +16,14 @@ class GoalsForm extends Component {
             endDate: null,
             formatDate: null,
             layerShow: false,
+            taskOne: '',
         }
 
         this.state = this.initialState
     }
 
     handleChange = event => {
+        //the name and value take from the form field
         const { name, value } = event.target
 
         this.setState({
@@ -30,8 +32,6 @@ class GoalsForm extends Component {
     }
 
     receivingInput = (date) => {
-        console.log("I AM HERE" + date)
-
         const endDate = moment(date)
         const formatDate = endDate.format('D MMMM YYYY')
 
@@ -43,20 +43,10 @@ class GoalsForm extends Component {
     }
 
     submitForm = () => {
+        //adding it to the goals array in app where it then gets mapped in goals js
         this.props.handleSubmit(this.state)
         this.setState(this.initialState)
     }
-
-    // onDateSelect = date => {
-
-    //     const endDate = moment(date)
-    //     const formatDate = endDate.format('D MMMM YYYY')
-
-    //     this.setState({
-    //         endDate: endDate,
-    //         formatDate: formatDate,
-    //     });
-    // };
 
     render() {
 
@@ -65,7 +55,6 @@ class GoalsForm extends Component {
             <Box pad='large' gap='medium'>
               <Box direction='row' gap='medium' align='center'>
                   <Calendar
-                    // onDateSelect={this.onDateSelect}
                     receiveHandler={this.receivingInput}
                     />
               </Box>
@@ -73,7 +62,7 @@ class GoalsForm extends Component {
           </Layer>
         )
 
-        const { goal } = this.state;
+        const { goal, taskOne } = this.state;
         const { layerShow } = this.state;
 
         let layer;
@@ -93,18 +82,20 @@ class GoalsForm extends Component {
                 margin="small"
                 >
                 <Heading
-                margin="small"
                 level={3}
                 >Add New Goal
                 </Heading>
                     <FormField
-                        type="text"
+                    label="What do you want to accomplish?"
+                    >
+                        <TextInput
                         name="goal"
-                        label="Goal"
+                        placeholder="Lose 5kg"
                         value={goal}
                         onChange={this.handleChange}
                         required={true}
-                    />
+                        />
+                    </FormField>
 
                     <Button
                     icon={<Schedule />}
@@ -116,11 +107,29 @@ class GoalsForm extends Component {
                     })}
                     />
 
-                    <Text>
+                    <Text
+                    size="medium"
+                    color="neutral-2"
+                    >
                     Goal End Date: {this.state.formatDate}
                     </Text>
 
-                    <br/>
+                    <Heading
+                    level={3}
+                    >Add Tasks
+                    </Heading>
+
+                            <FormField
+                            label="Task 1"
+                            >
+                                <TextInput
+                                name="taskOne"
+                                placeholder="Stop drinking soda"
+                                value={taskOne}
+                                onChange={this.handleChange}
+                                required={true}
+                                />
+                            </FormField>
 
                     <Button primary
                     type="submit"

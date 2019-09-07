@@ -46,6 +46,7 @@ class App extends Component {
                     #GOALS
                 </AppBar>
 
+                {/* create new goals box */}
                 <Box
                 pad="medium"
                 elevation="medium"
