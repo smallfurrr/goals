@@ -15,9 +15,10 @@ const SimpleCard = props => {
         return (
         <Box
         key={index}
-        // width="medium"
+        width="medium"
+        height="medium"
         // wrap={true}
-        basis="45%"
+        // basis="45%"
         elevation="medium"
         round="medium"
         gap="xsmall"

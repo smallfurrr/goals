@@ -19,6 +19,7 @@ export default class extends Component {
     state = {}
 
     onSelectSingle = (date) => this.setState({ date })
+
     sendInput = () => {
         this.props.receiveHandler(this.state.date);
     }
@@ -28,12 +29,12 @@ export default class extends Component {
     return (
 
         <Box align='center'>
-            <Text>Select End Date</Text>
             <Calendar
                 size="small"
                 margin="small"
                 animate={true}
                 range={false}
+                daysOfWeek={true}
                 date={this.state.date}
                 onSelect={(date) => {
                     this.onSelectSingle(date)
