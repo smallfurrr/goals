@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
-import GoalsForm from './Form';
-import Goals from './Goals';
+import GoalsForm from './Form'
+import Goals from './Goals'
+// import mobilebanner from './mobile_banner.png'
+import banner from './banner.png'
 import ls from 'local-storage'
 import {
 Box,
-DataTable,
 Grommet,
-Meter,
+Image,
 Text } from 'grommet';
 
 
@@ -20,19 +21,19 @@ const theme = {
   },
 };
 
-const AppBar = (props) => (
-  <Box
-    tag='header'
-    direction='row'
-    align='center'
-    justify='between'
-    background='brand'
-    pad={{ left: 'medium', right: 'small', vertical: 'small' }}
-    elevation='medium'
-    style={{ zIndex: '1' }}
-    {...props}
-  />
-);
+// const AppBar = (props) => (
+//   <Box
+//     tag='header'
+//     direction='row'
+//     align='center'
+//     justify='between'
+//     background='brand'
+//     pad={{ left: 'medium', right: 'small', vertical: 'small' }}
+//     elevation='medium'
+//     style={{ zIndex: '1' }}
+//     {...props}
+//   />
+// );
 
 class App extends Component {
 
@@ -80,11 +81,14 @@ class App extends Component {
 
         return (
             <Grommet theme={theme}>
-                <AppBar>
-                    #GOALS
-                </AppBar>
 
-                {/* overall container */}
+                <Box
+                height={{ min: "medium" }}
+                >
+                <Image src={banner} fit="cover" />
+                </Box>
+
+                {/* bottom container */}
                 <Box
                 gap="small"
                 pad="medium"

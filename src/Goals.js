@@ -39,14 +39,13 @@ class SimpleCheckBox extends Component {
         ls.set('checked', checkcheck)
     }
 
-  render() {
+    render() {
 
     const { checked } = this.state;
 
     return (
           <CheckBox
             {...this.props}
-            // label="Task Complete"
             checked={checked}
             onChange={this.onChange}
           />
