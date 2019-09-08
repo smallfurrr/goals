@@ -135,24 +135,6 @@ class GoalsForm extends Component {
                         </Text>
                     </Box>
 
-                    <Heading
-                    level={3}
-                    >Add Tasks
-                    </Heading>
-
-                            <FormField
-                            label="Task 1"
-                            >
-                                <TextInput
-                                name="taskOne"
-                                placeholder="Stop drinking soda"
-                                value={taskOne}
-                                onChange={this.handleChange}
-                                required={true}
-                                />
-
-                            </FormField>
-
                     <Button primary
                     type="submit"
                     label="Submit"

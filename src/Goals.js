@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import ls from 'local-storage'
+import { emojisplosion, emojisplosions } from 'emojisplosion'
+
 import {
 Box,
 Button,
@@ -9,8 +11,8 @@ Text,
 } from 'grommet'
 import { Trash } from 'grommet-icons';
 
-
 class SimpleCard extends Component {
+
     render() {
 
     const cards = this.props.goals.map((row, index) => {
@@ -42,6 +44,7 @@ class SimpleCard extends Component {
                 <Box
                 pad="medium"
                 justify="center"
+                flex={{ grow: 1 }}
                 >
                     <Box
                     margin={{ bottom: "medium"}}
@@ -49,29 +52,6 @@ class SimpleCard extends Component {
                         <Text>
                           Goal End Date: {row.formatDate}
                         </Text>
-                    </Box>
-
-                     <Heading
-                    level={4}
-                    margin={{ bottom:"xsmall"} }
-                    >
-                    Tasks
-                    </Heading>
-
-                    <Box
-                    direction="row"
-                    align="center"
-                    >
-                        <Text
-                        margin={{ right: "small"}}
-                        >
-                        {row.taskOne}
-                        </Text>
-                        <input
-                        id={"checkbox" + index}
-                        type="checkbox"
-                        // onChange={save}
-                        />
                     </Box>
 
                     <Box
@@ -86,6 +66,24 @@ class SimpleCard extends Component {
                     />
                     </Box>
                 </Box>
+
+                {/* goal complete */}
+                <Box
+                round={{size: "medium", corner: "bottom"}}
+                justify="end"
+                pad="medium"
+                background="linear-gradient(102.77deg, #865ED6 -9.18%, #18BAB9 209.09%)"
+                >
+
+                    <Button plain
+                    label="Goal Complete"
+                    onClick={() => {
+                      this.props.removeGoal(index);
+                      emojisplosion();
+                    }}
+                    />
+                </Box>
+            {/* goal complete */}
             </Box>
         )
     })
