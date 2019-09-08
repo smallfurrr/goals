@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Dashboard from './Dashboard'
 import GoalsForm from './Form'
 import Goals from './Goals'
 // import mobilebanner from './mobile_banner.png'
@@ -21,19 +22,6 @@ const theme = {
   },
 };
 
-// const AppBar = (props) => (
-//   <Box
-//     tag='header'
-//     direction='row'
-//     align='center'
-//     justify='between'
-//     background='brand'
-//     pad={{ left: 'medium', right: 'small', vertical: 'small' }}
-//     elevation='medium'
-//     style={{ zIndex: '1' }}
-//     {...props}
-//   />
-// );
 
 class App extends Component {
 
@@ -86,7 +74,9 @@ class App extends Component {
                 <Image src={banner} fit="cover" />
                 </Box>
 
-                {/* bottom container */}
+                <Dashboard {...this.state}/>
+
+                {/* main below header container */}
                 <Box
                 gap="small"
                 pad="medium"
