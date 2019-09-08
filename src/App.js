@@ -82,9 +82,7 @@ class App extends Component {
         return (
             <Grommet theme={theme}>
 
-                <Box
-                height={{ min: "medium" }}
-                >
+                <Box>
                 <Image src={banner} fit="cover" />
                 </Box>
 
