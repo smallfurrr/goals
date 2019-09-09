@@ -82,7 +82,7 @@ class App extends Component {
     }
 
     render() {
-        const { goals } = this.state
+        const { goals, completedGoals } = this.state
 
         return (
             <Grommet theme={theme}>
@@ -91,7 +91,10 @@ class App extends Component {
                 <Image src={banner} fit="cover" />
                 </Box>
 
-                <Dashboard goals={goals}/>
+                <Dashboard
+                goals={goals}
+                completedGoals={completedGoals}
+                />
 
                 {/* main below header container */}
                 <Box

@@ -39,14 +39,17 @@ export default class extends Component {
 
             let difference = (moment(endDateMoment).fromNow());
 
-            // console.log(difference);
-
             if (difference.includes("ago")) {
                 overDue.push("orhor")
             }
         }
 
         return overDue.length;
+    }
+
+    getCompletedGoals = goals => {
+        const completedGoals = goals.length;
+        return completedGoals;
     }
 
     render() {
@@ -79,7 +82,7 @@ export default class extends Component {
 
                 <Text>
                 completed goals:
-
+                {this.getCompletedGoals(this.props.completedGoals)}
                 </Text>
 
             </Box>
