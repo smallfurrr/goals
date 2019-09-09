@@ -39,7 +39,7 @@ export default class extends Component {
 
             let difference = (moment(endDateMoment).fromNow());
 
-            console.log(difference);
+            // console.log(difference);
 
             if (difference.includes("ago")) {
                 overDue.push("orhor")
@@ -51,18 +51,13 @@ export default class extends Component {
 
     render() {
 
-    //declare an empty overdue array
-    //loop through the goals array and get each endDate
-    //compare each endDate to current moment
-    //if its a ??? value (must see how to check leh maybe see if string includes "fron" or "to" or can i just direct compare the dates using >) then push it into the overdue array
-    //get length of the overdue array
 
-
-    //to get total number of goals
-    // const fuckeverything = goals.length
-    // console.log("number of goals: " + fuckeverything)
-
-    //lol then need to get completed goals also lol WHY DIDNT I USE DATABASE unless i set it into another state property in APP and every time i click complete goal it adds to that count and that's the one i use  woohoo
+    //create completedGoals array in app state
+    //create new completedGoals method that is essentially removeGoals but also adds one to the completedGoals function
+    //change the onclick function for the completeGoals function to that one
+    //in here, get that completedGoals array using ls.get
+    //???
+    //profit
 
     return (
         <Box
@@ -80,6 +75,11 @@ export default class extends Component {
                 <Text>
                 overdue goals:
                 {this.getOverdueGoals(this.props.goals)}
+                </Text>
+
+                <Text>
+                completed goals:
+
                 </Text>
 
             </Box>

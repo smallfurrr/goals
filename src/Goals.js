@@ -91,7 +91,7 @@ class SimpleCard extends Component {
                     <Button plain
                     label="Goal Complete"
                     onClick={() => {
-                      this.props.removeGoal(index);
+                      this.props.completeGoal(index);
                       emojisplosion();
                     }}
                     />
@@ -109,7 +109,7 @@ class SimpleCard extends Component {
 class Goals extends Component {
     render(){
 
-        const { goals, removeGoal } = this.props
+        const { goals, removeGoal, completeGoal } = this.props
 
         return (
             <Box
@@ -121,6 +121,7 @@ class Goals extends Component {
                 <SimpleCard
                 goals={goals}
                 removeGoal={removeGoal}
+                completeGoal={completeGoal}
                 />
             </Box>
     )}

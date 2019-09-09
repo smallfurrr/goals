@@ -30,12 +30,14 @@ class App extends Component {
 
         this.state = {
             goals: [],
+            completedGoals: []
         }
     }
 
     componentDidMount() {
         this.setState({
             goals: ls.get('goals') || [],
+            completedGoals: ls.get('completedGoals') || [],
         })
     }
 
@@ -58,6 +60,25 @@ class App extends Component {
             goals: newGoals
             })
         ls.set('goals', newGoals)
+    }
+
+    completeGoal = index => {
+        //in case i fuck up again
+        // this.setState({
+        //     completedGoals: [],
+        // })
+        // ls.set('completedGoals', [])
+
+        this.removeGoal(index);
+
+        const { completedGoals } = this.state
+        const newCompletedGoals = [...this.state.completedGoals, index]
+
+        this.setState({
+            completedGoals: newCompletedGoals
+        })
+
+        ls.set('completedGoals', newCompletedGoals)
     }
 
     render() {
@@ -98,6 +119,7 @@ class App extends Component {
                         <Goals
                         goals={goals}
                         removeGoal={this.removeGoal}
+                        completeGoal={this.completeGoal}
                         />
                     </Box>
                 </Box>
