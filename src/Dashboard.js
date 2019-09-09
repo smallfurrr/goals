@@ -4,7 +4,7 @@ import moment from 'moment'
 import {
 // Button,
 Box,
-// Heading,
+Heading,
 Text } from 'grommet';
 
 export default class extends Component {
@@ -54,39 +54,82 @@ export default class extends Component {
 
     render() {
 
-
-    //create completedGoals array in app state
-    //create new completedGoals method that is essentially removeGoals but also adds one to the completedGoals function
-    //change the onclick function for the completeGoals function to that one
-    //in here, get that completedGoals array using ls.get
-    //???
-    //profit
-
     return (
         <Box
         direction="row"
         pad="medium"
         gap="medium"
+        justify="center"
         >
-            {/* active goal container */}
-            <Box>
-                <Text>
-                active goals:
-                {this.getActiveGoals(this.props.goals)}
+        {/* active goal container */}
+            <Box
+            // background={{color: "#E5764E"}}
+            background={{ color: "brand" }}
+            elevation="small"
+            round="medium"
+            pad="medium"
+            justify="center"
+            >
+                <Heading
+                level={3}
+                margin={{ vertical: "small" }}
+                color="light-1"
+                >
+                Active Goals
+                </Heading>
+                <Text
+                textAlign="center"
+                color="light-1"
+                size="xxlarge"
+                >
+                    {this.getActiveGoals(this.props.goals)}
                 </Text>
+            </Box>
 
-                <Text>
-                overdue goals:
+            <Box
+            background={{ color: "status-critical" }}
+            elevation="small"
+            round="medium"
+            pad="medium"
+            justify="center"
+            >
+                <Heading
+                level={3}
+                margin={{ vertical: "small" }}
+                >
+                Overdue Goals
+                </Heading>
+
+                <Text
+                textAlign="center"
+                color="light-1"
+                size="xxlarge">
                 {this.getOverdueGoals(this.props.goals)}
                 </Text>
+            </Box>
 
-                <Text>
-                completed goals:
+            <Box
+            background={{ color: "neutral-1" }}
+            elevation="small"
+            round="medium"
+            pad="medium"
+            justify="center"
+            >
+                <Heading
+                level={3}
+                margin={{ vertical: "small" }}
+                >
+                Completed Goals
+                </Heading>
+
+                <Text
+                textAlign="center"
+                color="light-1"
+                size="xxlarge">
                 {this.getCompletedGoals(this.props.completedGoals)}
                 </Text>
-
             </Box>
-            {/* active goal container */}
+        {/* active goal container */}
         </Box>
 
     );
