@@ -25,7 +25,7 @@ class GoalsForm extends Component {
             formatDate: null,
             layerShow: false,
             taskOne: '',
-            taskOneDone: false,
+            // taskOneDone: false,
             //need to toggle this through the checkbox - callback function
         }
 
@@ -53,7 +53,7 @@ class GoalsForm extends Component {
     }
 
     submitForm = () => {
-        //adding it to the goals array in app where it then gets mapped in goals js
+
         this.props.handleSubmit(this.state)
         this.setState(this.initialState)
     }
