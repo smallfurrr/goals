@@ -53,7 +53,8 @@ class SimpleCard extends Component {
                 pad="medium"
                 justify="center"
                 flex={{ grow: 1 }}
-                >   {/* end date box */}
+                >
+                    {/* end date box */}
                     <Box
                     margin={{ bottom: "medium"}}
                     >
@@ -65,6 +66,15 @@ class SimpleCard extends Component {
                         </Text>
                     </Box>
                     {/* end date box */}
+
+                    <Box
+                    margin={{ bottom: "medium"}}
+                    >
+                        <Text>
+                          Goal Reason: {goal.goalReason}
+                        </Text>
+
+                    </Box>
 
                     {/* remove goal box */}
                     <Box

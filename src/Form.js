@@ -20,6 +20,7 @@ class GoalsForm extends Component {
 
         this.initialState = {
             goal: '',
+            goalReason: '',
             endDate: null,
             formatDate: null,
             layerShow: false,
@@ -38,6 +39,7 @@ class GoalsForm extends Component {
     }
 
     receivingInput = date => {
+
         const endDate = moment(date)
         const formatDate = endDate.format('D MMMM YYYY')
 
@@ -68,7 +70,7 @@ class GoalsForm extends Component {
           </Layer>
         )
 
-        const { goal } = this.state;
+        const { goal, goalReason } = this.state;
         const { layerShow } = this.state;
 
         let layer;
@@ -100,6 +102,18 @@ class GoalsForm extends Component {
                         name="goal"
                         placeholder="Lose 5kg"
                         value={goal}
+                        onChange={this.handleChange}
+                        required={true}
+                        />
+                    </FormField>
+
+                    <FormField
+                    label="Why do you want to achieve this goal?"
+                    >
+                        <TextInput
+                        name="goalReason"
+                        placeholder="To look good in vacay pics"
+                        value={goalReason}
                         onChange={this.handleChange}
                         required={true}
                         />
