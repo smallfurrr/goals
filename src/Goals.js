@@ -7,7 +7,7 @@ Button,
 Heading,
 Text,
 } from 'grommet'
-import { Trash } from 'grommet-icons';
+import { Trash, StatusGood } from 'grommet-icons';
 
 class SimpleCard extends Component {
 
@@ -41,7 +41,9 @@ class SimpleCard extends Component {
                     level={3}
                     margin="xsmall"
                     color="white"
-                    >{goal.goal}
+                    textAlign="center"
+                    >
+                    {goal.goal}
                     </Heading>
                 </Box>
             {/* header box */}
@@ -84,17 +86,26 @@ class SimpleCard extends Component {
                 <Box
                 round={{size: "medium", corner: "bottom"}}
                 justify="end"
-                pad="medium"
+                pad="small"
                 background="linear-gradient(102.77deg, #865ED6 -9.18%, #18BAB9 209.09%)"
                 >
 
                     <Button plain
-                    label="Goal Complete"
+                    // label="Mark as Complete"
+                    alignSelf="center"
                     onClick={() => {
                       this.props.completeGoal(index);
                       emojisplosion();
                     }}
-                    />
+                    >
+                        <Heading
+                        level={4}
+                        color="light-1"
+                        margin={{ vertical: "small"}}
+                        >
+                        Mark as Complete
+                        </Heading>
+                    </Button>
                 </Box>
             {/* goal complete footer */}
             </Box>

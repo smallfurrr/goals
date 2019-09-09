@@ -7,8 +7,11 @@ import banner from './banner.png'
 import ls from 'local-storage'
 import {
 Box,
+// Button,
 Grommet,
+// Heading,
 Image,
+// Text
 } from 'grommet';
 
 
@@ -71,7 +74,6 @@ class App extends Component {
 
         this.removeGoal(index);
 
-        const { completedGoals } = this.state
         const newCompletedGoals = [...this.state.completedGoals, index]
 
         this.setState({
@@ -82,6 +84,7 @@ class App extends Component {
     }
 
     render() {
+
         const { goals, completedGoals } = this.state
 
         return (
@@ -100,6 +103,7 @@ class App extends Component {
                 <Box
                 gap="small"
                 pad="medium"
+                align="start"
                 direction="row">
 
                     {/* create new goals */}
@@ -112,6 +116,7 @@ class App extends Component {
                         handleSubmit={this.handleSubmit}
                         />
                     </Box>
+                    {/* create new goals */}
 
                     {/* all current goals */}
                     <Box

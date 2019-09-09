@@ -4,7 +4,6 @@ import moment from 'moment'
 import {
 Box,
 Button,
-// CheckBox,
 Form,
 FormField,
 Heading,
@@ -24,8 +23,6 @@ class GoalsForm extends Component {
             endDate: null,
             formatDate: null,
             layerShow: false,
-            // taskOne: '',
-            // taskOneDone: false,
         }
 
         this.state = this.initialState
@@ -85,6 +82,7 @@ class GoalsForm extends Component {
         }
 
         return (
+
             <Form>
                 <Box
                 gap="small"
@@ -94,6 +92,7 @@ class GoalsForm extends Component {
                 level={3}
                 >Add New Goal
                 </Heading>
+
                     <FormField
                     label="What do you want to accomplish?"
                     >

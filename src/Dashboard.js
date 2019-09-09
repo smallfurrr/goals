@@ -56,30 +56,31 @@ export default class extends Component {
 
     return (
         <Box
-        direction="row"
+        direction="row-responsive"
         pad="medium"
         gap="medium"
         justify="center"
         >
-        {/* active goal container */}
+            {/* active goal container */}
             <Box
-            // background={{color: "#E5764E"}}
-            background={{ color: "brand" }}
+            border={{ size: "medium", style: "solid", color:"brand" }}
             elevation="small"
             round="medium"
-            pad="medium"
+            pad="small"
+            width="30%"
             justify="center"
             >
                 <Heading
                 level={3}
                 margin={{ vertical: "small" }}
-                color="light-1"
+                color="brand"
+                textAlign="center"
                 >
                 Active Goals
                 </Heading>
                 <Text
                 textAlign="center"
-                color="light-1"
+                color="dark-2"
                 size="xxlarge"
                 >
                     {this.getActiveGoals(this.props.goals)}
@@ -87,44 +88,50 @@ export default class extends Component {
             </Box>
 
             <Box
-            background={{ color: "status-critical" }}
+            border={{ size: "medium", style: "solid", color:"status-critical" }}
             elevation="small"
             round="medium"
-            pad="medium"
+            pad="small"
+            width="30%"
             justify="center"
             >
                 <Heading
                 level={3}
                 margin={{ vertical: "small" }}
+                color="status-critical"
+                textAlign="center"
                 >
                 Overdue Goals
                 </Heading>
 
                 <Text
                 textAlign="center"
-                color="light-1"
+                color="dark-2"
                 size="xxlarge">
                 {this.getOverdueGoals(this.props.goals)}
                 </Text>
             </Box>
 
             <Box
-            background={{ color: "neutral-1" }}
+            border={{ size: "medium", style: "solid", color: "neutral-1" }}
             elevation="small"
             round="medium"
-            pad="medium"
+            pad="small"
+            width="30%"
             justify="center"
             >
                 <Heading
                 level={3}
                 margin={{ vertical: "small" }}
+                color="neutral-1"
+                textAlign="center"
                 >
                 Completed Goals
                 </Heading>
 
                 <Text
                 textAlign="center"
-                color="light-1"
+                color="dark-2"
                 size="xxlarge">
                 {this.getCompletedGoals(this.props.completedGoals)}
                 </Text>
