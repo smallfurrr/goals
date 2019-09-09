@@ -4,7 +4,7 @@ import moment from 'moment'
 import {
 Box,
 Button,
-CheckBox,
+// CheckBox,
 Form,
 FormField,
 Heading,
@@ -24,9 +24,8 @@ class GoalsForm extends Component {
             endDate: null,
             formatDate: null,
             layerShow: false,
-            taskOne: '',
+            // taskOne: '',
             // taskOneDone: false,
-            //need to toggle this through the checkbox - callback function
         }
 
         this.state = this.initialState
@@ -72,7 +71,7 @@ class GoalsForm extends Component {
           </Layer>
         )
 
-        const { goal, taskOne } = this.state;
+        const { goal } = this.state;
         const { layerShow } = this.state;
 
         let layer;

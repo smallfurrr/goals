@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import { Button, Box, Calendar, Text } from 'grommet';
+import {
+Button,
+Box,
+Calendar
+} from 'grommet';
 
 class SubmitButton extends Component {
     render() {
@@ -13,12 +17,11 @@ class SubmitButton extends Component {
     }
 }
 
-
 export default class extends Component {
 
     state = {}
 
-    onSelectSingle = (date) => this.setState({ date })
+    onSelectSingle = date => this.setState({ date })
 
     sendInput = () => {
         this.props.receiveHandler(this.state.date);

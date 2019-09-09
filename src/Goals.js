@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
-import ls from 'local-storage'
-import { emojisplosion, emojisplosions } from 'emojisplosion'
-
+import { emojisplosion } from 'emojisplosion'
+import moment from 'moment'
 import {
 Box,
 Button,
-CheckBox,
 Heading,
 Text,
 } from 'grommet'
@@ -13,21 +11,27 @@ import { Trash } from 'grommet-icons';
 
 class SimpleCard extends Component {
 
+    getTimeRemaining = goal => {
+        let endDate = goal.endDate
+        let endDateMoment = moment(endDate, 'YYYY-MM-DD').toDate();
+        let timeLeft = moment(endDateMoment).fromNow();
+        return timeLeft;
+    }
+
     render() {
 
-    const cards = this.props.goals.map((row, index) => {
+    const cards = this.props.goals.map((goal, index) => {
         return (
             <Box
             key={index}
             width="medium"
             height="medium"
-            // wrap={true}
-            // basis="45%"
             elevation="medium"
             round="medium"
             gap="xsmall"
             margin={{bottom: "small", right: "small"}}
             >
+                {/* header box */}
                 <Box
                 round={{size: "medium", corner: "top"}}
                 pad="medium"
@@ -37,23 +41,30 @@ class SimpleCard extends Component {
                     level={3}
                     margin="xsmall"
                     color="white"
-                    >{row.goal}
+                    >{goal.goal}
                     </Heading>
                 </Box>
+            {/* header box */}
 
+                {/* goal content box */}
                 <Box
                 pad="medium"
                 justify="center"
                 flex={{ grow: 1 }}
-                >
+                >   {/* end date box */}
                     <Box
                     margin={{ bottom: "medium"}}
                     >
                         <Text>
-                          Goal End Date: {row.formatDate}
+                          Goal End Date: {goal.formatDate}
+                        </Text>
+                        <Text>
+                          Due: {this.getTimeRemaining(goal)}
                         </Text>
                     </Box>
+                    {/* end date box */}
 
+                    {/* remove goal box */}
                     <Box
                     direction="row"
                     margin={{ top: "large" }}
@@ -65,9 +76,11 @@ class SimpleCard extends Component {
                     onClick={ () => this.props.removeGoal(index) }
                     />
                     </Box>
+                    {/* remove goal box */}
                 </Box>
+                {/* goal content box */}
 
-                {/* goal complete */}
+                {/* goal complete footer */}
                 <Box
                 round={{size: "medium", corner: "bottom"}}
                 justify="end"
@@ -83,7 +96,7 @@ class SimpleCard extends Component {
                     }}
                     />
                 </Box>
-            {/* goal complete */}
+            {/* goal complete footer */}
             </Box>
         )
     })

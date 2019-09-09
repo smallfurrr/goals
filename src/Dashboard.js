@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import ls from 'local-storage'
 import moment from 'moment'
 import {
-Button,
+// Button,
 Box,
-Heading,
+// Heading,
 Text } from 'grommet';
 
 export default class extends Component {
@@ -26,19 +26,15 @@ export default class extends Component {
 
     render() {
 
-    const goals = ls.get('goals')
+    // const goals = ls.get('goals')
 
-    for (let i=0; i < goals.length; i++) {
-        let endDate = goals[i].endDate;
-        // let holyfuck = moment(endDate).format('DD-MMM-YYYY')
-        let holyfuck = moment(endDate, 'YYYY-MM-DD').toDate();
-        console.log(holyfuck)
-        console.log(typeof holyfuck);
-        console.log(moment(holyfuck).fromNow())
-
-        // const date = moment()
-        // console.log(typeof date);
-    }
+    // for (let i=0; i < goals.length; i++) {
+    //     let endDate = goals[i].endDate;
+    //     let holyfuck = moment(endDate, 'YYYY-MM-DD').toDate();
+    //     console.log(holyfuck)
+    //     console.log(typeof holyfuck);
+    //     console.log(moment(holyfuck).fromNow())
+    // }
 
     //declare an empty overdue array
     //loop through the goals array and get each endDate
@@ -46,14 +42,14 @@ export default class extends Component {
     //if its a ??? value then push it into the overdue array
     //get length of the overdue array
 
-    const fuck = goals.map((goals, index) => {
+    // const fuck = goals.map((goals, index) => {
 
-            return (
-            <Box key={index}>
-                <Text>{goals.endDate}</Text>
-            </Box>
-        )
-    })
+    //         return (
+    //         <Box key={index}>
+    //             <Text>{goals.endDate}</Text>
+    //         </Box>
+    //     )
+    // })
 
     //to get total number of goals
     // const fuckeverything = goals.length
@@ -62,7 +58,7 @@ export default class extends Component {
     //lol then need to get completed goals also lol WHY DIDNT I USE DATABASE unless i set it into another state property in APP and every time i click complete goal it adds to that count and that's the one i use  woohoo
 
     return (
-        <Box>{fuck}</Box>
+        <Box>Hi</Box>
     );
   }
 }
