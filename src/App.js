@@ -2,9 +2,8 @@ import React, { Component } from 'react'
 import Dashboard from './Dashboard'
 import GoalsForm from './Form'
 import Goals from './Goals'
-// import mobilebanner from './mobile_banner.png'
-import banner from './banner.png'
 import ls from 'local-storage'
+import MediaQuery from 'react-responsive'
 import {
 Box,
 // Button,
@@ -90,9 +89,8 @@ class App extends Component {
         return (
             <Grommet theme={theme}>
 
-                <Box>
-                <Image src={banner} fit="cover" />
-                </Box>
+                <div className="banner">
+                </div>
 
                 <Dashboard
                 goals={goals}

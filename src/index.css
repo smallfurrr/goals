@@ -1,3 +1,10 @@
+div.banner {
+	height: 150px;
+	background-image: url('./banner.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
 blockquote {
 font-family: "Georgia", serif;
 font-size: 20px;
@@ -21,4 +28,14 @@ left: -20px;
 top: -20px;
 /*color: #7a7a7a;*/
 color: #E5764E
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+	div.banner {
+		/*height: 150px;*/
+		background-image: url('./mobile_logo.png');
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+	}
 }
