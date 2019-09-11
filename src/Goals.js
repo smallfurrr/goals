@@ -23,6 +23,7 @@ class SimpleCard extends Component {
     const cards = this.props.goals.map((goal, index) => {
         return (
             <Box
+            className="goal-card"
             key={index}
             width="medium"
             height="medium"
@@ -34,11 +35,13 @@ class SimpleCard extends Component {
                 {/* header box */}
                 <Box
                 round={{size: "medium", corner: "top"}}
+                flex={{ grow: 1 }}
                 justify="center"
                 pad="medium"
                 background="linear-gradient(102.77deg, #865ED6 -9.18%, #18BAB9 209.09%)"
                 >
                         <Heading
+                        className="goal-name"
                         level={3}
                         margin="xsmall"
                         color="white"
@@ -53,7 +56,6 @@ class SimpleCard extends Component {
                 <Box
                 pad="medium"
                 justify="center"
-                flex={{ grow: 1 }}
                 >
                     <Box
                     margin={{ bottom: "medium"}}
@@ -78,8 +80,9 @@ class SimpleCard extends Component {
 
                     {/* remove goal box */}
                     <Box
+                    justify="center"
                     direction="row"
-                    margin={{ top: "small" }}
+                    margin={{ top: "medium" }}
                     >
                     <Button plain
                     index={index}
@@ -101,7 +104,6 @@ class SimpleCard extends Component {
                 >
 
                     <Button plain
-                    // label="Mark as Complete"
                     alignSelf="center"
                     onClick={() => {
                       this.props.completeGoal(index);
@@ -109,6 +111,7 @@ class SimpleCard extends Component {
                     }}
                     >
                         <Heading
+                        className="mark-complete"
                         level={4}
                         color="light-1"
                         >

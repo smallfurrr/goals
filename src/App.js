@@ -102,13 +102,12 @@ class App extends Component {
                 gap="small"
                 pad="medium"
                 align="start"
-                direction="row">
+                direction="row-responsive"
+                >
 
                     {/* create new goals */}
                     <Box
-                    pad="medium"
-                    elevation="medium"
-                    width="medium"
+                    id="add-goal"
                     >
                         <GoalsForm
                         handleSubmit={this.handleSubmit}

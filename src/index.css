@@ -5,6 +5,14 @@ div.banner {
 	background-repeat: no-repeat;
 }
 
+div#add-goal {
+    width: 30%;
+}
+
+div.delete-icon {
+	margin: 0 auto;
+}
+
 blockquote {
 font-family: "Georgia", serif;
 font-size: 20px;
@@ -42,4 +50,24 @@ color: #E5764E
 	.goal-container {
 		width: 100%;
 	}
+
+	div#add-goal {
+    width: 100%;
+    margin: 0px auto 15px auto;
+	}
+
+	div.goal-card {
+    width: 100%;
+    height: 300px;
+	}
+
+	h3.goal-name {
+		font-size: 25px;
+	}
+
+	h4.mark-complete {
+		font-size: 18px;
+		margin: 10px;
+	}
+
 }
