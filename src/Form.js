@@ -89,9 +89,12 @@ class GoalsForm extends Component {
                 <Box
                 gap="small"
                 margin="small"
+                align="center"
                 >
                 <Heading
                 level={3}
+                color="brand"
+                margin={{ vertical: "small" }}
                 >Add New Goal
                 </Heading>
 

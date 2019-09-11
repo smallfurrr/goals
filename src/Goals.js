@@ -34,17 +34,18 @@ class SimpleCard extends Component {
                 {/* header box */}
                 <Box
                 round={{size: "medium", corner: "top"}}
+                justify="center"
                 pad="medium"
                 background="linear-gradient(102.77deg, #865ED6 -9.18%, #18BAB9 209.09%)"
                 >
-                    <Heading
-                    level={3}
-                    margin="xsmall"
-                    color="white"
-                    textAlign="center"
-                    >
-                    {goal.goal}
-                    </Heading>
+                        <Heading
+                        level={3}
+                        margin="xsmall"
+                        color="white"
+                        textAlign="center"
+                        >
+                        {goal.goal}
+                        </Heading>
                 </Box>
             {/* header box */}
 
@@ -54,32 +55,31 @@ class SimpleCard extends Component {
                 justify="center"
                 flex={{ grow: 1 }}
                 >
-                    {/* end date box */}
                     <Box
                     margin={{ bottom: "medium"}}
+                    >
+                        <blockquote>
+                        {goal.goalReason}
+                        </blockquote>
+                    </Box>
+
+                    {/* end date box */}
+                    <Box
+                    margin={{ bottom: "low"}}
                     >
                         <Text>
                           Goal End Date: {goal.formatDate}
                         </Text>
                         <Text>
-                          Due: {this.getTimeRemaining(goal)}
+                          Due {this.getTimeRemaining(goal)}
                         </Text>
                     </Box>
                     {/* end date box */}
 
-                    <Box
-                    margin={{ bottom: "medium"}}
-                    >
-                        <Text>
-                          Goal Reason: {goal.goalReason}
-                        </Text>
-
-                    </Box>
-
                     {/* remove goal box */}
                     <Box
                     direction="row"
-                    margin={{ top: "large" }}
+                    margin={{ top: "small" }}
                     >
                     <Button plain
                     index={index}
@@ -95,7 +95,7 @@ class SimpleCard extends Component {
                 {/* goal complete footer */}
                 <Box
                 round={{size: "medium", corner: "bottom"}}
-                justify="end"
+                justify="center"
                 pad="small"
                 background="linear-gradient(102.77deg, #865ED6 -9.18%, #18BAB9 209.09%)"
                 >
@@ -111,7 +111,6 @@ class SimpleCard extends Component {
                         <Heading
                         level={4}
                         color="light-1"
-                        margin={{ vertical: "small"}}
                         >
                         Mark as Complete
                         </Heading>
