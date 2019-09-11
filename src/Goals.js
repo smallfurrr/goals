@@ -54,7 +54,7 @@ class SimpleCard extends Component {
 
                 {/* goal content box */}
                 <Box
-                pad="medium"
+                className="goal-content"
                 justify="center"
                 >
                     <Box
@@ -69,10 +69,17 @@ class SimpleCard extends Component {
                     <Box
                     margin={{ bottom: "low"}}
                     >
-                        <Text>
+                        <Text
+                        textAlign="center"
+                        >
                           Goal End Date: {goal.formatDate}
                         </Text>
-                        <Text>
+                        <Text
+                        color="brand"
+                        textAlign="center"
+                        weight="bold"
+                        size="20px"
+                        >
                           Due {this.getTimeRemaining(goal)}
                         </Text>
                     </Box>
@@ -82,7 +89,7 @@ class SimpleCard extends Component {
                     <Box
                     justify="center"
                     direction="row"
-                    margin={{ top: "medium" }}
+                    margin={{ top: "40px" }}
                     >
                     <Button plain
                     index={index}
