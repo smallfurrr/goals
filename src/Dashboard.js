@@ -63,6 +63,7 @@ export default class extends Component {
         >
             {/* active goal container */}
             <Box
+            className="goal-container"
             border={{ size: "medium", style: "solid", color:"brand" }}
             elevation="small"
             round="medium"
@@ -87,7 +88,9 @@ export default class extends Component {
                 </Text>
             </Box>
 
+            {/* overdue goal container */}
             <Box
+            className="goal-container"
             border={{ size: "medium", style: "solid", color:"status-critical" }}
             elevation="small"
             round="medium"
@@ -112,7 +115,9 @@ export default class extends Component {
                 </Text>
             </Box>
 
+            {/* completed goal container */}
             <Box
+            className="goal-container"
             border={{ size: "medium", style: "solid", color: "neutral-1" }}
             elevation="small"
             round="medium"
@@ -136,7 +141,6 @@ export default class extends Component {
                 {this.getCompletedGoals(this.props.completedGoals)}
                 </Text>
             </Box>
-        {/* active goal container */}
         </Box>
 
     );

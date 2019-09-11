@@ -38,4 +38,8 @@ color: #E5764E
     background-repeat: no-repeat;
     background-position: center center;
 	}
+
+	.goal-container {
+		width: 100%;
+	}
 }
