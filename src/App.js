@@ -6,11 +6,8 @@ import ls from 'local-storage'
 import MediaQuery from 'react-responsive'
 import {
 Box,
-// Button,
 Grommet,
-// Heading,
 Image,
-// Text
 } from 'grommet';
 
 
@@ -65,11 +62,6 @@ class App extends Component {
     }
 
     completeGoal = index => {
-        //in case i fuck up again
-        // this.setState({
-        //     completedGoals: [],
-        // })
-        // ls.set('completedGoals', [])
 
         this.removeGoal(index);
 
@@ -118,7 +110,6 @@ class App extends Component {
                     {/* all current goals */}
                     <Box
                     width="100%"
-                    // wrap={true}
                     direction="row"
                     >
                         <Goals
